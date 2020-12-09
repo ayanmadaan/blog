@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="content-section" enctype="multipart/form-data">
+      <div class="media">
+        {% if user.profile.image %}
+            <img class="rounded-circle account-img" src="{{ object.author.image.url }}">
+        {% endif %}
+        <div class="media-body">
+          <h2 class="account-heading">{{ object.author.username }}</h2>
+            <a type="button" class="btn btn-outline-primary" id="follow" role="button" href="#">Follow</a>
+          <p class="text-secondary">{{ object.author.email }}</p>
+            <p>{{ object.author.profile.bio }}</p>
+        </div>
+      </div>
+    </div>
+{% endblock %}
